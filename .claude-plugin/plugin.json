@@ -1,6 +1,6 @@
 {
   "name": "cc-csharp-lsp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "C# language server using csharp-ls - Roslyn-based LSP",
   "author": {
     "name": "holo-q"
@@ -20,7 +20,7 @@
   "mcpServers": {
     "csharp-ls": {
       "command": "uvx",
-      "args": ["--refresh", "--from", "git+https://github.com/holo-q/cc-lsp-now", "cc-lsp-now", "csharp"],
+      "args": ["--refresh", "--from", "git+https://github.com/holo-q/cc-lsp-now", "cc-lsp-now-csharp"],
       "env": {
         "LSP_SERVERS": "csharp-ls",
         "LSP_PROJECT_MARKERS": "*.sln,*.csproj,Directory.Build.props,global.json,.git",
@@ -37,7 +37,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uvx --refresh --from git+https://github.com/holo-q/cc-lsp-now cc-lsp-now-redirect-hook csharp"
+            "command": "uvx --refresh --from git+https://github.com/holo-q/cc-lsp-now cc-lsp-now-redirect-hook-csharp"
           }
         ]
       }
