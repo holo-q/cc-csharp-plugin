@@ -20,7 +20,7 @@
   "mcpServers": {
     "csharp-ls": {
       "command": "uvx",
-      "args": ["--refresh", "--from", "git+https://github.com/holo-q/cc-lsp-now", "cc-lsp-now"],
+      "args": ["--refresh", "--from", "git+https://github.com/holo-q/cc-lsp-now", "cc-lsp-now", "csharp"],
       "env": {
         "LSP_SERVERS": "csharp-ls",
         "LSP_PROJECT_MARKERS": "*.sln,*.csproj,Directory.Build.props,global.json,.git",
@@ -37,7 +37,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "uvx --refresh --from git+https://github.com/holo-q/cc-lsp-now cc-lsp-now-redirect-hook"
+            "command": "uvx --refresh --from git+https://github.com/holo-q/cc-lsp-now cc-lsp-now-redirect-hook csharp"
           }
         ]
       }
