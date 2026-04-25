@@ -1,0 +1,39 @@
+{
+  "name": "cc-csharp-lsp",
+  "version": "0.2.0",
+  "description": "C# language server using csharp-ls - Roslyn-based LSP",
+  "author": {
+    "name": "holo-q",
+    "url": "https://github.com/holo-q"
+  },
+  "homepage": "https://github.com/razzmatazz/csharp-language-server",
+  "repository": "https://github.com/holo-q/cc-csharp-plugin",
+  "license": "MIT",
+  "keywords": ["csharp", "dotnet", "lsp", "language-server", "roslyn", "csharp-ls"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "lspServers": {
+    "csharp-ls": {
+      "command": "csharp-ls",
+      "args": [],
+      "extensionToLanguage": {
+        ".cs": "csharp"
+      }
+    }
+  },
+  "interface": {
+    "displayName": "C# LSP",
+    "shortDescription": "C# semantic code intelligence through csharp-ls",
+    "longDescription": "Adds csharp-ls-backed C# LSP tools to Codex through cc-lsp-now for semantic navigation, diagnostics, references, rename, and code actions.",
+    "developerName": "holo-q",
+    "category": "Development",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/holo-q/cc-csharp-plugin",
+    "defaultPrompt": [
+      "Use C# LSP to inspect this symbol.",
+      "Use C# LSP diagnostics on this project.",
+      "Use C# LSP to rename this C# symbol."
+    ],
+    "brandColor": "#8A7CFF"
+  }
+}

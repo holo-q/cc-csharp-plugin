@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "csharp-ls": {
+      "command": "uvx",
+      "args": ["--refresh", "--from", "git+https://github.com/holo-q/cc-lsp-now", "cc-lsp-now-csharp"],
+      "env": {
+        "LSP_SERVERS": "csharp-ls",
+        "LSP_PROJECT_MARKERS": "*.sln,*.csproj,Directory.Build.props,global.json,.git",
+        "LSP_WARMUP_PATTERNS": "*.cs",
+        "LSP_WARMUP_EXCLUDE": "bin,obj,packages,.vs,node_modules",
+        "LSP_LANGUAGE": "csharp"
+      }
+    }
+  }
+}

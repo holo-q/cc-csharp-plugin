@@ -1,0 +1,20 @@
+{
+  "name": "cc-csharp-plugin",
+  "interface": {
+    "displayName": "cc-csharp-plugin"
+  },
+  "plugins": [
+    {
+      "name": "cc-csharp-lsp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cc-csharp-lsp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    }
+  ]
+}

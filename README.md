@@ -1,6 +1,6 @@
 # cc-csharp-plugin
 
-C# language server plugin for Claude Code using [csharp-ls](https://github.com/razzmatazz/csharp-language-server) — a Roslyn-based LSP.
+C# language server plugin for Claude Code and Codex using [csharp-ls](https://github.com/razzmatazz/csharp-language-server) — a Roslyn-based LSP.
 
 ## How it works
 
@@ -11,6 +11,20 @@ Two-layer LSP setup (same design as [cc-ty-plugin](https://github.com/holo-q/cc-
 2. **`mcpServers` (cc-lsp-now bridge)** — spawns csharp-ls as a subprocess and exposes the full LSP protocol as MCP tools with symbol-name addressing, multi-target batching, provenance headers, and filesystem watching via `workspace/didChangeWatchedFiles`.
 
 3. **PreToolUse hook** — redirects Claude Code's built-in `LSP()` tool to the MCP tools, which cover more methods and return compact, agent-friendly output.
+
+## Codex support
+
+This repo also ships a Codex-native plugin under `plugins/cc-csharp-lsp/` and a repo-local marketplace at `.agents/plugins/marketplace.json`.
+
+For local testing from this repo:
+
+```bash
+codex plugin marketplace add .
+```
+
+Then restart Codex, open `/plugins`, select the `cc-csharp-plugin` marketplace, and install `cc-csharp-lsp`.
+
+The Codex plugin keeps the same LSP server declaration and MCP bridge as the Claude Code plugin. The Claude Code redirect hook remains Claude-specific.
 
 ## Prerequisites
 
