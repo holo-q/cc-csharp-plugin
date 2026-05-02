@@ -1,13 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "cc-csharp-plugin",
+  "name": "hsp-cs",
   "description": "C# language server plugin for Claude Code using csharp-ls",
   "owner": {
     "name": "holo-q"
   },
   "plugins": [
     {
-      "name": "cc-csharp-lsp",
+      "name": "hsp-cs",
       "description": "C# language server using csharp-ls - Roslyn-based LSP for semantic code intelligence",
       "version": "0.1.0",
       "author": {
@@ -15,7 +15,7 @@
       },
       "source": {
         "source": "github",
-        "repo": "holo-q/cc-csharp-plugin"
+        "repo": "holo-q/hsp-cs"
       },
       "category": "development",
       "strict": false,

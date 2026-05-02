@@ -1,20 +1,20 @@
-# cc-csharp-plugin
+# hsp-cs
 
 C# language server plugin for Claude Code and Codex using [csharp-ls](https://github.com/razzmatazz/csharp-language-server) — a Roslyn-based LSP.
 
 ## How it works
 
-Two-layer LSP setup (same design as [cc-ty-plugin](https://github.com/holo-q/cc-ty-plugin)):
+Two-layer LSP setup (same design as [hsp-py](https://github.com/holo-q/hsp-py)):
 
 1. **`lspServers`** — registers csharp-ls with Claude Code's native integration so push diagnostics surface automatically as `<new-diagnostics>` reminders after edits.
 
-2. **`mcpServers` (cc-lsp-now bridge)** — spawns csharp-ls as a subprocess and exposes the full LSP protocol as MCP tools with symbol-name addressing, multi-target batching, provenance headers, and filesystem watching via `workspace/didChangeWatchedFiles`.
+2. **`mcpServers` (hsp bridge)** — spawns csharp-ls as a subprocess and exposes the full LSP protocol as MCP tools with symbol-name addressing, multi-target batching, provenance headers, and filesystem watching via `workspace/didChangeWatchedFiles`.
 
 3. **PreToolUse hook** — redirects Claude Code's built-in `LSP()` tool to the MCP tools, which cover more methods and return compact, agent-friendly output.
 
 ## Codex support
 
-This repo also ships a Codex-native plugin under `plugins/cc-csharp-lsp/` and a repo-local marketplace at `.agents/plugins/marketplace.json`.
+This repo also ships a Codex-native plugin under `plugins/hsp-cs/` and a repo-local marketplace at `.agents/plugins/marketplace.json`.
 
 For local testing from this repo:
 
@@ -22,7 +22,7 @@ For local testing from this repo:
 codex plugin marketplace add .
 ```
 
-Then restart Codex, open `/plugins`, select the `cc-csharp-plugin` marketplace, and install `cc-csharp-lsp`.
+Then restart Codex, open `/plugins`, select the `hsp-cs` marketplace, and install `hsp-cs`.
 
 The Codex plugin keeps the same LSP server declaration and MCP bridge as the Claude Code plugin. The Claude Code redirect hook remains Claude-specific.
 
@@ -48,7 +48,7 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-The bridge (`cc-lsp-now`) is fetched and cached automatically by `uvx` on first plugin spawn — no manual install.
+The bridge (`hsp`) is fetched and cached automatically by `uvx` on first plugin spawn — no manual install.
 
 ## Tools provided
 
@@ -73,5 +73,5 @@ LSP_REPLACE=csharp-ls=dotnet /path/to/Microsoft.CodeAnalysis.LanguageServer.dll 
 ## More Information
 
 - [csharp-ls](https://github.com/razzmatazz/csharp-language-server)
-- [cc-lsp-now](https://github.com/holo-q/cc-lsp-now) — the LSP-to-MCP bridge
-- [cc-ty-plugin](https://github.com/holo-q/cc-ty-plugin) — sibling plugin for Python using `ty`
+- [hsp](https://github.com/holo-q/hsp) — the LSP-to-MCP bridge
+- [hsp-py](https://github.com/holo-q/hsp-py) — sibling plugin for Python using `ty`

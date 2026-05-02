@@ -1,14 +1,14 @@
 {
-  "name": "cc-csharp-plugin",
+  "name": "hsp-cs",
   "interface": {
-    "displayName": "cc-csharp-plugin"
+    "displayName": "hsp-cs"
   },
   "plugins": [
     {
-      "name": "cc-csharp-lsp",
+      "name": "hsp-cs",
       "source": {
         "source": "local",
-        "path": "./plugins/cc-csharp-lsp"
+        "path": "./plugins/hsp-cs"
       },
       "policy": {
         "installation": "AVAILABLE",
