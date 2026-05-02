@@ -31,6 +31,26 @@
     }
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind session.start ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind prompt ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "LSP",
@@ -38,6 +58,62 @@
           {
             "type": "command",
             "command": "uvx --refresh --from git+https://github.com/holo-q/hsp hsp-redirect-hook-csharp"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind edit.before ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind edit.before ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind edit.before ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind edit.after ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind edit.after ;; *) cat >/dev/null ;; esac'"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'case \"${HSP_HOOKS:-}\" in 1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn]) exec uvx --refresh --from git+https://github.com/holo-q/hsp hsp-csharp hook --kind edit.after ;; *) cat >/dev/null ;; esac'"
           }
         ]
       }
